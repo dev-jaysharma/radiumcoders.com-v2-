@@ -1,9 +1,7 @@
-import { useId } from "react"
-import { HouseIcon, InboxIcon, SearchIcon, ZapIcon } from "lucide-react"
+import { HouseIcon, InboxIcon, ZapIcon } from "lucide-react"
 import { AnimatedThemeToggler } from "@/components/magicui/animated-theme-toggler";
 import Logo from "@/components/navbar-components/logo"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -24,7 +22,7 @@ const navigationLinks = [
 ]
 
 export default function Navbar() {
-  const id = useId()
+
 
   return (
     <header className="border-b px-4 md:px-6">

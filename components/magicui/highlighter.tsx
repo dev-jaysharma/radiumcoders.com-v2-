@@ -24,6 +24,7 @@ interface HighlighterProps {
   padding?: number;
   multiline?: boolean;
   isView?: boolean;
+  className?: string; // added
 }
 
 export function Highlighter({
@@ -36,6 +37,7 @@ export function Highlighter({
   padding = 2,
   multiline = true,
   isView = false,
+  className, // added
 }: HighlighterProps) {
   const elementRef = useRef<HTMLSpanElement>(null);
   const isInView = useInView(elementRef, {
@@ -65,9 +67,7 @@ export function Highlighter({
     annotation.show();
 
     return () => {
-      if (element) {
-        annotate(element, { type: action }).remove();
-      }
+      annotation.remove(); // cleaner teardown
     };
   }, [
     shouldShow,
@@ -80,8 +80,10 @@ export function Highlighter({
     multiline,
   ]);
 
+  const classes = `relative bg-transparent ${className ?? "inline"}`;
+
   return (
-    <span ref={elementRef} className="relative inline-block bg-transparent">
+    <span ref={elementRef} className={classes}>
       {children}
     </span>
   );

@@ -44,7 +44,7 @@ export default function Features() {
 
             <CardContent>
               <p className="mt-3 text-sm">
-                From design elements to functionality, you have complete control
+                From design to functionality, you have complete control
                 to create a unique and personalized experience.
               </p>
             </CardContent>
