@@ -4,72 +4,75 @@ import { ReactNode } from "react";
 
 export default function Features() {
   return (
-    <section className=" py-16 md:py-32 h-[90vh]">
+    <section className=" py-16 md:py-32 z-10  min-h-[90vh]">
       <div className="@container mx-auto max-w-5xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-semibold lg:text-5xl">
             We are here to cover your needs
           </h2>
           <p className="mt-4">
-            Libero sapiente aliquam quibusdam aspernatur, praesentium iusto
-            repellendus.
+            At RadiumCoders, we offer a range of customizable solutions designed to meet your specific needs.
           </p>
         </div>
-        <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16">
-          <Card className="group shadow-zinc-950/5">
-            <CardHeader className="pb-3">
-              <CardDecorator>
-                <Zap className="size-6" aria-hidden />
-              </CardDecorator>
-
-              <h3 className="mt-6 font-medium">Customizable</h3>
-            </CardHeader>
-
-            <CardContent>
-              <p className="text-sm">
-                Extensive customization options, allowing you to tailor every
-                aspect to meet your specific needs.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group shadow-zinc-950/5">
-            <CardHeader className="pb-3">
-              <CardDecorator>
-                <Settings2 className="size-6" aria-hidden />
-              </CardDecorator>
-
-              <h3 className="mt-6 font-medium">You have full control</h3>
-            </CardHeader>
-
-            <CardContent>
-              <p className="mt-3 text-sm">
-                From design to functionality, you have complete control
-                to create a unique and personalized experience.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="group shadow-zinc-950/5">
-            <CardHeader className="pb-3">
-              <CardDecorator>
-                <Sparkles className="size-6" aria-hidden />
-              </CardDecorator>
-
-              <h3 className="mt-6 font-medium">Powered By AI</h3>
-            </CardHeader>
-
-            <CardContent>
-              <p className="mt-3 text-sm">
-                Elements to functionality, you have complete control to create a
-                unique experience.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
+        {featuresCards()}
       </div>
     </section>
   );
+
+  function featuresCards() {
+    return <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16">
+      <Card className="group shadow-zinc-950/5">
+        <CardHeader className="pb-3">
+          <CardDecorator>
+            <Zap className="size-6" aria-hidden />
+          </CardDecorator>
+
+          <h3 className="mt-6 font-medium">Customizable</h3>
+        </CardHeader>
+
+        <CardContent>
+          <p className="text-sm">
+            Extensive customization options, allowing you to tailor every
+            aspect to meet your specific needs.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card className="group shadow-zinc-950/5">
+        <CardHeader className="pb-3">
+          <CardDecorator>
+            <Settings2 className="size-6" aria-hidden />
+          </CardDecorator>
+
+          <h3 className="mt-6 font-medium">You have full control</h3>
+        </CardHeader>
+
+        <CardContent>
+          <p className="mt-3 text-sm">
+            From design to functionality, you have complete control
+            to create a unique and personalized experience.
+          </p>
+        </CardContent>
+      </Card>
+
+      <Card className="group shadow-zinc-950/5">
+        <CardHeader className="pb-3">
+          <CardDecorator>
+            <Sparkles className="size-6" aria-hidden />
+          </CardDecorator>
+
+          <h3 className="mt-6 font-medium">Powered By AI</h3>
+        </CardHeader>
+
+        <CardContent>
+          <p className="mt-3 text-sm">
+            Elements to functionality, you have complete control to create a
+            unique experience.
+          </p>
+        </CardContent>
+      </Card>
+    </div>;
+  }
 }
 
 const CardDecorator = ({ children }: { children: ReactNode }) => (

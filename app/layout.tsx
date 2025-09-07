@@ -32,11 +32,11 @@ export default function RootLayout({
           <nav className="fixed top-0 z-20 w-full bg-background/90 backdrop-blur-sm">
             <Navbar />
           </nav>
-        <main className="relative z-10 h-screen w-full">
           <Background>
+        <main className="relative z-10 h-screen w-full">
             {children}
-          </Background>
         </main>
+          </Background>
       </body>
     </html>
   );

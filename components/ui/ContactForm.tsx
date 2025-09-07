@@ -46,7 +46,7 @@ export default function ContactForm() {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-3 max-w-3xl mx-auto py-10"
+        className="space-y-4 w-full mx-auto"
       >
         <FormField
           control={form.control}
@@ -83,7 +83,7 @@ export default function ContactForm() {
           name="name_8218090702"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Title</FormLabel>
+              <FormLabel>Service Title</FormLabel>
               <FormControl>
                 <Input
                   placeholder="e.g. Web Developer"
@@ -105,7 +105,7 @@ export default function ContactForm() {
               <FormLabel>Phone number</FormLabel>
               <FormControl className="w-full">
                 <PhoneInput
-                  placeholder="9074190746"
+                  placeholder="9xxxx9xxxx"
                   {...field}
                   defaultCountry="IN"
                 />
@@ -116,7 +116,12 @@ export default function ContactForm() {
           )}
         />
 
-        <Button type="submit">Submit</Button>
+        <Button
+          className="mt-2 w-full text-base sm:text-lg md:text-xl py-2"
+          type="submit"
+        >
+          Submit
+        </Button>
       </form>
     </Form>
   );
