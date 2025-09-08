@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
@@ -33,7 +33,7 @@ export default function RootLayout({
             <Navbar />
           </nav>
           <Background>
-        <main className="relative z-10 h-screen w-full">
+        <main className="relative z-10 h-screen w-full ">
             {children}
         </main>
           </Background>
