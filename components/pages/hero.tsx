@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import BlurText from "../BlurText";
 import { Highlighter } from "@/components/magicui/highlighter";
 
-
 export default function Hero() {
   return (
     <>
@@ -25,9 +24,9 @@ export default function Hero() {
         <div className="mx-auto max-w-lg text-center lg:mx-auto lg:w-1/2 mt-8 lg:mt-12">
           <BlurText
             text="Grow 10x Faster with RadiumCoders"
-            delay={10}
+            delay={1}
             animateBy="words"
-            direction="top"
+            direction="bottom"
             className="max-w-2xl text-balance text-5xl font-medium md:text-6xl xl:text-7xl"
           />
           {HeroDessText()}
@@ -104,5 +103,3 @@ export default function Hero() {
     }
   }
 }
-
-
