@@ -20,7 +20,7 @@ export default function Hero() {
 
   function HeroText() {
     return (
-      <div className="relative mx-auto flex max-w-4xl rounded-2xl flex-col px-6 lg:block bg-neutral-950/2 dark:bg-neutral-950/10 backdrop-blur-xl border border-neutral-800/50">
+      <div className="relative mx-auto flex max-w-4xl rounded-2xl flex-col px-6 lg:block ">
         <div className="mx-auto max-w-lg text-center lg:mx-auto lg:w-1/2 mt-8 mb-8 lg:mt-12">
           <BlurText
             text="Grow 10x Faster with RadiumCoders"
