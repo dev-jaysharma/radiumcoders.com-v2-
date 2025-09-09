@@ -1,31 +1,29 @@
 "use client";
 import { useMotionValue } from "motion/react";
 import React, { useState, useEffect } from "react";
-import { useMotionTemplate, motion } from "motion/react";
+import { useMotionTemplate, motion, type MotionValue } from "motion/react";
 import { cn } from "@/lib/utils";
-import { Sparkles } from "lucide-react";
 
 export const EvervaultCard = ({
-  text,
   children,
   className,
 }: {
-  text?: string;
   children?: React.ReactNode;
   className?: string;
 }) => {
-  let mouseX = useMotionValue(0);
-  let mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   const [randomString, setRandomString] = useState("");
 
   useEffect(() => {
-    let str = generateRandomString(1500);
+    const str = generateRandomString(1500);
     setRandomString(str);
   }, []);
 
-  function onMouseMove({ currentTarget, clientX, clientY }: any) {
-    let { left, top } = currentTarget.getBoundingClientRect();
+  function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    const { left, top } = e.currentTarget.getBoundingClientRect();
+    const { clientX, clientY } = e;
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
 
@@ -60,9 +58,19 @@ export const EvervaultCard = ({
   );
 };
 
-export function CardPattern({ mouseX, mouseY, randomString }: any) {
-  let maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
-  let style = { maskImage, WebkitMaskImage: maskImage };
+interface CardPatternProps {
+  mouseX: MotionValue<number>;
+  mouseY: MotionValue<number>;
+  randomString: string;
+}
+
+export function CardPattern({
+  mouseX,
+  mouseY,
+  randomString,
+}: CardPatternProps) {
+  const maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  const style = { maskImage, WebkitMaskImage: maskImage } as const;
 
   return (
     <div className="pointer-events-none">
@@ -93,7 +101,7 @@ export const generateRandomString = (length: number) => {
   return result;
 };
 
-export const Icon = ({ className, ...rest }: any) => {
+export const Icon = ({ className, ...rest }: React.SVGProps<SVGSVGElement>) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
