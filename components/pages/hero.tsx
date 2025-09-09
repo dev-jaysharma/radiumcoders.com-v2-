@@ -20,8 +20,8 @@ export default function Hero() {
 
   function HeroText() {
     return (
-      <div className="relative mx-auto flex max-w-6xl flex-col px-6 lg:block">
-        <div className="mx-auto max-w-lg text-center lg:mx-auto lg:w-1/2 mt-8 lg:mt-12">
+      <div className="relative mx-auto flex max-w-4xl rounded-2xl flex-col px-6 lg:block bg-neutral-950/2 dark:bg-neutral-950/10 backdrop-blur-xl border border-neutral-800/50">
+        <div className="mx-auto max-w-lg text-center lg:mx-auto lg:w-1/2 mt-8 mb-8 lg:mt-12">
           <BlurText
             text="Grow 10x Faster with RadiumCoders"
             delay={1}
@@ -37,21 +37,10 @@ export default function Hero() {
 
     function HeroCTA() {
       return (
-        <div className="mt-12 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-center">
+        <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row lg:justify-center">
           <Button asChild size="lg" className="px-5 text-base">
-            <Link href="#link">
-              <span className="text-nowrap">Start Building</span>
-            </Link>
-          </Button>
-          <Button
-            key={2}
-            asChild
-            size="lg"
-            variant="ghost"
-            className="px-5 text-base"
-          >
-            <Link href="#link">
-              <span className="text-nowrap">Request a demo</span>
+            <Link href="/contact">
+              <span className="text-nowrap">Contact Us!!</span>
             </Link>
           </Button>
         </div>
