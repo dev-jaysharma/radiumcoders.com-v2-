@@ -11,20 +11,20 @@ export function CardBloc({
   description?: string;
 }) {
   return (
-    <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-start w-full max-w-xs sm:max-w-sm mx-auto p-4 sm:p-5 relative h-[22rem] sm:h-[26rem] rounded-xl bg-background/40 backdrop-blur supports-[backdrop-filter]:bg-background/30">
-      <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-      <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
+    <div className="bg-background/40 supports-[backdrop-filter]:bg-background/30 relative mx-auto flex h-[22rem] w-full max-w-xs flex-col items-start border border-black/[0.2] p-4 backdrop-blur sm:h-[26rem] sm:max-w-sm sm:p-5 dark:border-white/[0.2]">
+      <Icon className="absolute -top-3 -left-3 h-6 w-6 text-black dark:text-white" />
+      <Icon className="absolute -bottom-3 -left-3 h-6 w-6 text-black dark:text-white" />
+      <Icon className="absolute -top-3 -right-3 h-6 w-6 text-black dark:text-white" />
+      <Icon className="absolute -right-3 -bottom-3 h-6 w-6 text-black dark:text-white" />
 
-      <EvervaultCard className="h-40 sm:h-48 md:h-56 aspect-[4/3] sm:aspect-square">
+      <EvervaultCard className="aspect-[4/3] h-40 sm:aspect-square sm:h-48 md:h-56">
         {children}
       </EvervaultCard>
 
-      <p className="text-xs sm:text-sm border font-light dark:border-white/[0.2] border-black/[0.2] w-full mx-auto rounded-full mt-4 text-black dark:text-white px-2 py-1 tracking-wide">
+      <p className="dark:text-primary mx-auto mt-4 flex w-full items-center justify-center rounded-full border border-black/[0.2] px-2 py-1 text-xs font-light tracking-wide text-black sm:text-sm dark:border-white/[0.2]">
         {title}
       </p>
-      <h2 className="dark:text-white text-black mt-3 text-xs sm:text-sm font-light leading-relaxed">
+      <h2 className="mt-3 text-center text-xs leading-relaxed font-light text-black sm:text-sm dark:text-white">
         {description}
       </h2>
     </div>
