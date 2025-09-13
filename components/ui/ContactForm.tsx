@@ -1,8 +1,8 @@
 "use client";
-import { toast } from "sonner";
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import type { z } from "zod";
 import { Button } from "@/components/ui/button";
 import {
   Form,
@@ -15,37 +15,40 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PhoneInput } from "@/components/ui/phone-input";
+import { client } from "@/lib/client.orpc";
+import { ContactFormSchema } from "@/server/db/schema/contact-form-schema";
 
-const formSchema = z.object({
-  name_1038107617: z.string().min(1).min(2).max(16),
-  name_3125303316: z.string().min(1),
-  name_8218090702: z.string().min(1),
-  name_1263902896: z.string(),
-});
+const formSchema = ContactFormSchema;
 
 export default function ContactForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      companyName: "",
+      name: "",
+      title: "",
+      phone: "",
+    },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      console.log(values);
+      client.contactForm.add(values);
+      toast.success("Form submitted successfully!");
     } catch (error) {
-      console.error("Form submission error", error);
-      toast.error("Failed to submit the form. Please try again.");
+      toast.error(`Failed to submit the form. Please try again. error ==> ${error}`);
     }
   }
 
   return (
     <Form {...form}>
       <form
+        className="mx-auto w-full space-y-4"
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 w-full mx-auto"
       >
         <FormField
           control={form.control}
-          name="name_1038107617"
+          name="companyName"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Company Name</FormLabel>
@@ -60,7 +63,7 @@ export default function ContactForm() {
 
         <FormField
           control={form.control}
-          name="name_3125303316"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Name</FormLabel>
@@ -75,7 +78,7 @@ export default function ContactForm() {
 
         <FormField
           control={form.control}
-          name="name_8218090702"
+          name="title"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Service Title</FormLabel>
@@ -94,7 +97,7 @@ export default function ContactForm() {
 
         <FormField
           control={form.control}
-          name="name_1263902896"
+          name="phone"
           render={({ field }) => (
             <FormItem className="flex flex-col items-start">
               <FormLabel>Phone number</FormLabel>
@@ -112,7 +115,7 @@ export default function ContactForm() {
         />
 
         <Button
-          className="mt-2 w-full text-base sm:text-lg md:text-xl py-2"
+          className="mt-2 w-full py-2 text-base sm:text-lg md:text-xl"
           type="submit"
         >
           Submit
