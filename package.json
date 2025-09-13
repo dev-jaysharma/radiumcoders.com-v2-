@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "db:push": "drizzle db:push",
+    "db:pull": "drizzle db:pull",
+    "db:seed": "drizzle db:seed"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
